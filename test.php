@@ -1,0 +1,1 @@
+<?php header('Content-Type: text/css'); $a = file_get_contents('css/main.less'); file_put_contents('css/main.less', $a); echo $a; ?>

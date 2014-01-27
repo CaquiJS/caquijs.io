@@ -1,0 +1,98 @@
+CAQUIJS
+- O que é?
+- Eventos
+- Links
+    links com tags.
+- Discourse
+    - Discussões sobre tecnologia.
+    - Divultações de tecnologia (Frameworks, plugins, games, serviços).
+    - Responder.
+- Vamos discutir sobre tecnologia?
+- Idealizadores
+    - Renan Vaz
+    - Alisson Agianini
+
+DATABASE
+    POSTS
+        - author_id
+        - title
+        - description
+        - link
+        - image
+        - (has many) tags
+
+    TAGS
+        - slug
+        - title
+
+    AUTHOR
+        - name
+        - picture
+
+
+API
+$.post(
+    '',
+    {
+        data: {
+            user_token: 'a123bld9a93js96asd23',
+            title: 'Título',
+            description: 'Descrição com até 140 caracteres.',
+            image: 'Endereço absoluto de alguma imagem',
+            link: 'http://link.com.br',
+            tags: 'tag1, tag2, tag3'
+        },
+        success: function(){ alert("Ae! Artigo postado com sucesso ;)") }
+    }
+);
+
+
+
+paste <(sudo docker ps | tail -n +2 | awk {'printf "%s\t%s\n", $1, $2 '}) <(sudo docker ps -q | xargs sudo docker inspect | tail -n +2 | grep IPAddress | awk '{ print $2 }' | tr -d ',"')
+
+sudo nano /etc/nginx/nginx.conf
+sudo service nginx restart
+
+
+Tem que fazer um alias para que ao trocar de branch no repositório raiz da luego, todos os submodulos tb façam um chechout do mesmo branch
+
+ch = "!f() { git checkout $1 && git submodule foreach git checkout  $1; }; f"
+
+git ch BRANCH
+git checkout BRANCH
+git submodule foreach git checkout BRANCH
+
+// Lista o nome do diretório atual
+pwd
+
+// Lista os arquivos do diretório (o parametro -l lista os arquivos com detalhes)
+ls [$path]
+
+// Copia um arquivo ou conteúdo de uma pasta utilizando o -r (de recursive) para outro local
+// O parâmetro -a faz com que o arquivo seja copiado exatamente como o original com suas permissões e tudo mais
+cp -a $file_or_path_origin $file_or_path_dest
+
+// Copia um arquivo ou conteúdo de uma pasta utilizando o -r (de recursive) para outro local
+// O parâmetro -a faz com que o arquivo seja copiado exatamente como o original com suas permissões e tudo mais
+mv -a $file_or_path_origin $file_or_path_dest
+
+// Cria um diretório (o parametro -p possibilida criar uma arvode re diretório)
+mkdir $dir
+
+// cria um arquivo
+touch
+
+// Remove um arquivo ou pasta (utilizando o -r)
+rm file_or_path
+
+// Exibe o conteúdo de texto em um arquivo
+cat/less file
+
+// Lista as primeiras linhas de um arquivo (-n10 indica que deve exibir as 10 primeiras linhas)
+head file
+
+// Lista as últimas linhas de um arquivo (-n10 indica que deve exibir as 10 últimas linhas)
+tail file
+
+// Busca linhas que contenham uma expressão num arquivo (o param -i deixa case insensitive, o parametro -v faz a busca negar as linhas que conterem a expressão)
+greep expr file
