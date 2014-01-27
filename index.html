@@ -14,6 +14,7 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- Styles -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet/less" type="text/css" href="css/main.less">
 
@@ -28,35 +29,66 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div class="hello alert alert-warning alert-dismissable">
-            <p>Ajude-nos a divulgar o conhecimento: <a href="#" class="btn">Tweet isso</a> ou <a href="#" class="btn">Curta a nosso site no Facebook</a>. Valeu!</p>
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        </div>
-
         <header>
-            <div class="inner">
-                <h1>Caqui JS</h1>
-                <p>230 links de puro conhecimento</p>
+
+            <div class="primary-content">
+                <div class="container">
+                    <a href="#" class="pull-left"><h1>Caqui JS</h1></a>
+                    <p class="pull-right">230 links de puro conhecimento.<br /> ... e contando.</p>
+                </div>
             </div>
 
-            <form action="">
-                <input type="search" placeholder="Adicione tags para filtrar as postagens">
-            </form>
+            <div class="secondary-content">
+                <form action="" class="container">
+                    <label for="txt-filter"><i class="glyphicon glyphicon-search"></i></label>
+                    <input type="search" placeholder="Adicione tags para filtrar as postagens" id="txt-filter">
+                </form>
+            </div>
         </header>
 
         <main>
-            <section>
-                <article>
-                    <img src="http://placehold.it/150x150" />
-                    <h1>Título do link</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, aperiam, consequuntur, commodi, ab qui molestias dicta totam excepturi necessitatibus sit nam animi velit laudantium rem quo. Quisquam, quaerat praesentium repellat.</p>
 
-                    <nav>
-                        <a href="#">tag1</a>, <a href="#">tag2</a>,
-                    </nav>
-                </article>
-                <hr />
-            </section>
+            <div class="container">
+                <div class="hello alert alert-info alert-dismissable">
+                    <p><strong>Ajude-nos a divulgar o conhecimento:</strong> <a href="#" class="btn btn-primary">Tweet</a> ou <a href="#" class="btn btn-primary">Compartilhe a nosso site no Facebook</a>. Valeu!</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                </div>
+
+                <section>
+                    <article>
+                        <img src="http://placehold.it/150x150" />
+                        <h1>Título do link</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, aperiam, consequuntur, commodi, ab qui molestias dicta totam excepturi necessitatibus sit nam animi velit laudantium rem quo. Quisquam, quaerat praesentium repellat.</p>
+
+                        <nav>
+                            <a href="#">tag1</a>, <a href="#">tag2</a>,
+                        </nav>
+                    </article>
+                    <hr />
+
+                    <article>
+                        <img src="http://placehold.it/150x150" />
+                        <h1>Título do link</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, aperiam, consequuntur, commodi, ab qui molestias dicta totam excepturi necessitatibus sit nam animi velit laudantium rem quo. Quisquam, quaerat praesentium repellat.</p>
+
+                        <nav>
+                            <a href="#">tag1</a>, <a href="#">tag2</a>,
+                        </nav>
+                    </article>
+                    <hr />
+
+                    <article>
+                        <img src="http://placehold.it/150x150" />
+                        <h1>Título do link</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, aperiam, consequuntur, commodi, ab qui molestias dicta totam excepturi necessitatibus sit nam animi velit laudantium rem quo. Quisquam, quaerat praesentium repellat.</p>
+
+                        <nav>
+                            <a href="#">tag1</a>, <a href="#">tag2</a>,
+                        </nav>
+                    </article>
+                    <hr />
+                </section>
+            </div>
         </main>
 
         <section id="footer">
@@ -69,6 +101,7 @@
 
         <!-- Scripts Footer -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
