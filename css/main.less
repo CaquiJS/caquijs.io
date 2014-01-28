@@ -37,6 +37,7 @@
    Styles
    ========================================================================== */
 
+@orange: #FBA614;
 @orange-dark: #f77200;
 
 body {
@@ -77,11 +78,15 @@ header {
         padding: 20px 0;
 
         h1 {
-            .text-hide();
-            .size(279px, 60px);
-
-            background: url(../img/logo.png) no-repeat center center;
             margin: 0;
+
+            a {
+                .text-hide();
+                .size(278px, 58px);
+
+                display: block;
+                background: url(../img/logo.png) no-repeat center center;
+            }
         }
 
         p {
@@ -137,5 +142,18 @@ main {
 
         margin-top: 50px;
         padding: 15px;
+    }
+}
+
+#footer {
+    color: #FFF;
+    background-color: @orange-dark;
+
+    hr {
+        border-top-color: rgba(255, 255, 255, .5);
+    }
+
+    footer {
+        padding-bottom: 15px;
     }
 }
