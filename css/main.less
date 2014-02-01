@@ -2,6 +2,7 @@
    Import styles
    ========================================================================== */
 
+@import url(variables.less);
 @import url(mixins.less);
 @import url(utilities.less);
 
@@ -134,6 +135,7 @@ header {
 main {
     background-color: #fef5ed;
     padding-top: 147px;
+    position: relative;
 
     section {
         background-color: #FFF;
@@ -141,7 +143,57 @@ main {
         border-top: 2px solid @orange-dark;
 
         margin-top: 50px;
-        padding: 15px;
+        padding: 0 15px 50px;
+
+        article {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            padding-bottom: 15px;
+
+            &:first-child {
+                border-top: 0px solid;
+            }
+
+            img.img-responsive {
+                width: 100%;
+            }
+
+            h1 {
+                text-transform: uppercase;
+                margin-top: 0;
+                font-size: 26px;
+                margin-bottom: 5px;
+            }
+
+            .post-info {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                width: 280px;
+                text-align: right;
+
+                p {
+                    float: right;
+                    color: @gray-light;
+                    text-align: right;
+                    margin: 5px 10px 0 0;
+                    font-size: 11px;
+                }
+
+                img {
+                    width: 40px;
+                    float: right;
+                    -webkit-border-radius: 50px;
+                    -moz-border-radius: 50px;
+                    border-radius: 50px;
+                }
+            }
+
+            nav {
+                position: relative;
+                margin-top: 24px;
+            }
+        }
     }
 }
 
@@ -156,4 +208,38 @@ main {
     footer {
         padding-bottom: 15px;
     }
+}
+
+.load-more {
+    .transition(opacity 1.5s ease 1s);
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    background: -webkit-radial-gradient(50% 100%,farthest-side,rgba(247, 114, 0,.8),rgba(255,255,255,0)) 0 100%;
+    background: radial-gradient(farthest-side at 50% 100%,rgba(247, 114, 0,.8),rgba(255,255,255,0)) 0 100%;
+    background-attachment: local;
+    pointer-events: none;
+    z-index: 1030;
+    opacity: 1;
+}
+
+
+@media (max-width:@screen-sm-max) {
+
+    main {
+
+        section {
+
+            article {
+
+                img {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
 }
