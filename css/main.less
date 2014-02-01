@@ -90,6 +90,20 @@ header {
             }
         }
 
+        ul {
+            margin: 4px 0 0 25px;
+
+            a {
+                padding: 15px;
+            }
+
+            .active {
+                a {
+                    background-color: @orange-dark;
+                }
+            }
+        }
+
         p {
             text-align: right;
             margin: 10px 0;
@@ -201,11 +215,8 @@ main {
     color: #FFF;
     background-color: @orange-dark;
 
-    hr {
-        border-top-color: rgba(255, 255, 255, .5);
-    }
-
     footer {
+        padding-top: 15px;
         padding-bottom: 15px;
     }
 }
