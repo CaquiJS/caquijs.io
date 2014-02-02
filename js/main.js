@@ -34,7 +34,53 @@ $(function(){
         $('html, body').animate({scrollTop: $('main section').offset().top - $('header').height() - 15}, 600);
     });
 
+    $('.notifications .btn-notifications').on('click', getNotificacionPermission);
+
+    if (!localStorage.getItem('shared')) {
+        $('.hello').show();
+    }
+
+    if (('Notification' in window) && Notification.permission !== 'granted') {
+        $('.notifications').show();
+    }
+
+    // Fake
+
     setTimeout(function(){
-        $('.alert-news').addClass('has-news');
+        var description = 'Wow! Já temos mais 5 links. Quer ver?';
+        if (window.getVisibilityState() == 'visible') {
+            $('.alert-news').addClass('has-news').find('.text').text(description);
+        } else {
+            var notification = new Notification('CaquiJS', {body: description});
+        }
     }, 5000);
 });
+
+function getNotificacionPermission() {
+    Notification.requestPermission(function (permission) {
+        if(!('permission' in Notification)) {
+            Notification.permission = permission;
+
+            if (Notification.permission === 'granted') {
+                $('.notifications').hide();
+            }
+        }
+    });
+
+    return false;
+}
+
+var state;
+if (typeof document.hidden !== "undefined") {
+    state = "visibilityState";
+} else if (typeof document.mozHidden !== "undefined") {
+    state = "mozVisibilityState";
+} else if (typeof document.msHidden !== "undefined") {
+    state = "msVisibilityState";
+} else if (typeof document.webkitHidden !== "undefined") {
+    state = "webkitVisibilityState";
+}
+
+window.getVisibilityState = function(){
+    return document[state];
+};

@@ -55,10 +55,11 @@ body {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+    margin: 50px 0 50px 0;
 
     text-align: center;
     position: relative;
-    margin: 50px 0 0 0;
+    display: none;
 
     .close {
         position: absolute;
@@ -168,12 +169,18 @@ main {
     padding-top: 147px;
     position: relative;
 
+    .notifications {
+        margin-top: 50px;
+        color: @font-color-in-orange-light;
+        text-align: right;
+        display: none;
+    }
+
     section {
         background-color: #FFF;
         /*border: solid 1px #FAE5D2;*/
         border-top: 2px solid @orange-dark;
 
-        margin-top: 50px;
         padding: 0 15px 50px;
 
         article {
