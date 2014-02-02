@@ -1,11 +1,14 @@
 
 $(function(){
     var scrollLastPos = $(window).scrollTop();
+    var lastNewItemPos = 0;
+    var scrollLimitPage = ($(document).height() - $(window).height()) - 200;
+
     $(window).on('scroll', function(){
         var scrollCurrentPos = $(window).scrollTop();
 
         // Esta variável só deve ser calculada se houver inserção de novos itens, isto aqui é um teste.
-        var lastNewItemPos = $('main .alert-warning').last().offset().top - $('header').height();
+        lastNewItemPos = $('main .alert-warning').last().offset().top - $('header').height();
 
         // if scrolling to down
         if (scrollCurrentPos > scrollLastPos) {
@@ -19,7 +22,7 @@ $(function(){
             $('.alert-news').removeClass('has-news');
         }
 
-        if (scrollCurrentPos >= ($(document).height() - $(window).height()) - 200) {
+        if (scrollCurrentPos >= scrollLimitPage) {
             $('.loading-more').css({opacity: 1});
         }
 
