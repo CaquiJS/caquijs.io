@@ -28,6 +28,8 @@ DATABASE
     AUTHOR
         - name
         - picture
+        - role
+        - description
 
 
 API
@@ -39,7 +41,7 @@ $.post(
             title: 'Título',
             description: 'Descrição com até 140 caracteres.',
             image: 'Endereço absoluto de alguma imagem',
-            link: 'http://link.com.br',
+            link: 'http://link.com.br/article/etc...',
             tags: 'tag1, tag2, tag3'
         },
         success: function(){ alert("Ae! Artigo postado com sucesso ;)") }
