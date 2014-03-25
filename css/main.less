@@ -224,7 +224,6 @@ main {
         article {
             border-top: 1px solid #eee;
             padding-top: 15px;
-            padding-bottom: 15px;
 
             &:first-child {
                 border-top: 0px solid;
@@ -241,7 +240,6 @@ main {
                 padding: 5px 8px 0px 0;
             }
             a.linkPost:hover{
-                background: #f6f6f6;
                 padding-left: 8px;
                 transition: all .3s ease;
             }
@@ -258,31 +256,43 @@ main {
                 margin-top: 0;
             }
 
-            nav {
-                margin-top: 24px;
+
+            p{
+                font-weight: 300;
             }
-
-            .post-info {
-                width: 280px;
-                text-align: right;
-                margin-top: 24px;
-
-                p {
-                    float: right;
-                    color: @gray-light;
+            footer{
+                margin-top: 5px;
+                /*background: #f6f6f6;*/
+                background-image: linear-gradient(to bottom, white, #f6f6f6);
+                overflow: hidden;
+                padding: 10px 15px;
+                border-bottom: 1px solid #ccc;
+                nav {
+                    margin-top: 11px;
+                }
+                .post-info {
+                    width: 280px;
                     text-align: right;
-                    margin: 5px 10px 0 0;
-                    font-size: 11px;
-                }
 
-                img {
-                    width: 40px;
-                    float: right;
-                    -webkit-border-radius: 50px;
-                    -moz-border-radius: 50px;
-                    border-radius: 50px;
+                    p {
+                        float: right;
+                        color: @gray-light;
+                        text-align: right;
+                        margin: 5px 10px 0 0;
+                        font-size: 11px;
+                    }
+
+                    img {
+                        width: 40px;
+                        float: right;
+                        -webkit-border-radius: 50px;
+                        -moz-border-radius: 50px;
+                        border-radius: 50px;
+                    }
                 }
             }
+
+
         }
     }
 }

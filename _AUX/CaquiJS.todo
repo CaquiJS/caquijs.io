@@ -29,7 +29,12 @@ DATABASE
         - name
         - picture
         - role
+        - business
+        - linkBusiness
         - description
+        - facebook
+        - twitter
+        - skype
 
 
 API
