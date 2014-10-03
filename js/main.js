@@ -8,7 +8,7 @@ $(function(){
         var scrollCurrentPos = $(window).scrollTop();
 
         // Esta variável só deve ser calculada se houver inserção de novos itens, isto aqui é um teste.
-        lastNewItemPos = $('main .alert-warning').last().offset().top - $('header').height();
+        lastNewItemPos = $('main .alert-new').last().offset().top - $('header').height();
 
         // if scrolling to down
         if (scrollCurrentPos > scrollLastPos) {
