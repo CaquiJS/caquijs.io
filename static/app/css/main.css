@@ -76,7 +76,7 @@ body {
 }
 .hello {
   border-radius: 0;
-  margin: 50px 0 50px 0;
+  margin: 50px 0 0 0;
   text-align: center;
   position: relative;
   display: none;
@@ -228,6 +228,7 @@ main section {
   background-color: #FFF;
   border-top: solid 2px #f77200;
   padding: 0 15px 50px;
+  margin-top: 50px;
 }
 main section article {
   border-top: 1px solid #ddd;
