@@ -53,7 +53,7 @@
         <main>
             <div class="container">
                 <div class="hello alert alert-info alert-dismissable">
-                    <p><strong>Ajude-nos a compartilhar o conhecimento:</strong> <a href="#" class="btn btn-primary">Tweet</a> ou <a href="#" class="btn btn-primary">Compartilhe o nosso site no Facebook</a> Valeu!</p>
+                    <p><strong>Ajude-nos a compartilhar o conhecimento:</strong> <a href="javascrip:void(0);" id="btn-share-twitter" class="btn btn-primary">Tweet</a> ou <a href="javascrip:void(0);" id="btn-share-facebook" class="btn btn-primary">Compartilhe o nosso site no Facebook</a> Valeu!</p>
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 </div>
 
@@ -448,6 +448,29 @@
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+        
+        <div id="fb-root"></div>
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '1398050660498454',
+              xfbml      : true,
+              version    : 'v2.2'
+            });
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <script>
+            window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
         </script>
     </body>
 </html>

@@ -84,3 +84,23 @@ if (typeof document.hidden !== "undefined") {
 window.getVisibilityState = function(){
     return document[state];
 };
+
+$(document).ready(function() {
+    $('#btn-share-facebook').on('click', function() {
+        FB.ui({
+            method: 'feed',
+            name: 'Caqui JS',
+            link: 'http://www.caquijs.com.br',
+            picture: 'http://luver.dev/caquijs.io/static/app/img/logo.png',
+            caption: 'Temos muito conhecimento para compartilhar com você.',
+            //description: 'Caqui JS é um site de compartilhamento de conhecimento.'
+
+        });
+    });
+
+    $('#btn-share-twitter').attr('href','https://twitter.com/intent/tweet?url=http://www.caquijs.com.br&text=Temos muito conhecimento para compartilhar com você.&via=caquijs');
+
+    $('.hello a').on('click', function(){
+        $('.hello').alert('close');
+    });
+});
