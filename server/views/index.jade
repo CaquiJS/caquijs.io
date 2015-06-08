@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1= title
+    #dataLinks
+        - each dataLink in dataLinks
+          div.dataLink
+            div.created_at= dataLink.created_at
+            h2.title= dataLink.title
+            span.usertoken= dataLink.usertoken
+            p.description= dataLink.description
+            img(src=dataLink.imgurl)
+            a(href=dataLink.link,target="_blank")
+            div.tags= dataLink.tags
+            div.edit
+                form( method="post", action="/dataLink/:id/delete")
+                    input(name="_id", type="hidden", value=dataLink._id.toHexString())
+                    input(id="delete", value="X", type="submit")
+                form( method="get", action="/dataLink/:id/edit")
+                    input(name="_id", type="hidden", value=dataLink._id.toHexString())
+                    input(id="edit", value="Edit", type="submit")
+        a(href="/dataLink/new").btn!= "novo link"

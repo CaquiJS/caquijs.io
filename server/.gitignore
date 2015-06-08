@@ -12,3 +12,5 @@ media/_img/*
 !media/_css/.gitkeep
 !media/_js/.gitkeep
 !media/_img/.gitkeep
+
+node_modules

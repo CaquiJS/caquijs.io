@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    h1= "Edit dataLink"
+    div.newdataLink
+        form( method="post")
+            input(name="_id", type="hidden", value=dataLink._id.toHexString())
+            div
+                div
+                    span.label Title :
+                    input(type="text", name="title", id="editdataLinkTitle", value=[title])
+                div
+                    span.label User Token :
+                    input(type="text", name="user_token", id="editdataLinkName", value=[usertoken])
+                div
+                    span.label Descrição :
+                    input(type="text", name="description", id="editdataLinkName", value=[description])
+                div
+                    span.label Url da Imagem :
+                    input(type="text", name="img_url", id="editdataLinkName", value=[imgurl])
+                div
+                    span.label Link (url) :
+                    input(type="text", name="link", id="editdataLinkName", value=[link])
+                div
+                    span.label Tags (separados por comma) :
+                    input(type="text", name="tags", id="editdataLinkName", value=[tags])
+                div#editdataLinkSubmit
+                    input(type="submit", value="Update")
+        a(href="/")!= "Back to dataLink List"

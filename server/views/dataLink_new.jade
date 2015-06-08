@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    h1= title
+    div.newdataLink
+        form( method="post")
+            div
+                div
+                    span.label Titulo :
+                    input(type="text", name="title", id="editdataLinkTitle")
+                div
+                    span.label User Token :
+                    input(type="text", name="usertoken", id="editdataLinkName")
+                div
+                    span.label Descrição :
+                    input(type="text", name="description", id="editdataLinkName")
+                div
+                    span.label Url da Imagem :
+                    input(type="text", name="imgurl", id="editdataLinkName")
+                div
+                    span.label Link (url) :
+                    input(type="text", name="link", id="editdataLinkName")
+                div
+                    span.label Tags (separados por comma) :
+                    input(type="text", name="tags", id="editdataLinkName")
+                div#editdataLinkSubmit
+                    input(type="submit", value="Save")
+        a(href="/")!= "lista de links"
