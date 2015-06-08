@@ -21,9 +21,13 @@ app.configure(function(){
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
+    //app.use(require('stylus').middleware(__dirname + '/public'));
+
+    // var lessMiddleware = require('less-middleware');
+    // var app = express();
+    // app.use(lessMiddleware(__dirname + '/public'));
     app.use(express.static(path.join(__dirname, 'public')));
 });
-
 app.configure('development', function(){
     app.use(express.errorHandler());
 });
@@ -82,8 +86,12 @@ app.get('/dataLink/:id/edit', function(req, res) {
 //save updated dataLink
 app.post('/dataLink/:id/edit', function(req, res) {
     datalinkProvider.update(req.param('_id'),{
-        title: req.param('title'),
-        name: req.param('name')
+        usertoken:   req.param('usertoken'),
+        title:       req.param('title'),
+        description: req.param('description'),
+        imgurl:      req.param('imgurl'),
+        link:        req.param('link'),
+        tags:        req.param('tags')//separated of comma
     }, function(error, docs) {
         res.redirect('/')
     });

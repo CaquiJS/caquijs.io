@@ -1,22 +1,73 @@
 extends layout
 
 block content
-    h1= title
-    #dataLinks
-        - each dataLink in dataLinks
-          div.dataLink
-            div.created_at= dataLink.created_at
-            h2.title= dataLink.title
-            span.usertoken= dataLink.usertoken
-            p.description= dataLink.description
-            img(src=dataLink.imgurl)
-            a(href=dataLink.link,target="_blank")
-            div.tags= dataLink.tags
-            div.edit
-                form( method="post", action="/dataLink/:id/delete")
-                    input(name="_id", type="hidden", value=dataLink._id.toHexString())
-                    input(id="delete", value="X", type="submit")
-                form( method="get", action="/dataLink/:id/edit")
-                    input(name="_id", type="hidden", value=dataLink._id.toHexString())
-                    input(id="edit", value="Edit", type="submit")
-        a(href="/dataLink/new").btn!= "novo link"
+
+    header
+        div.primary-content
+            div.container
+                h1.pull-left
+                    a Caqui JS
+                p.pull-right 230 links de puro conhecimento.<br /> ... e contando.
+
+        div.secondary-content(data-offscreen="true")
+            form.container(action="")
+                label(for="txt-filter")
+                    i.glyphicon.glyphicon-search
+                input#txt-filter(type="search", placeholder="Filtre os resultados utilizando tags...", autofocus="autofocus")
+        div.alert-news
+            button.btn.btn-success(type="button")
+                i.glyphicon.glyphicon-arrow-up
+                span.text Wow! Já temos mais 5 links. Quer ver?
+
+    main
+        div.container
+            div.hello.alert.alert-info.alert-dismissable
+                p <strong>Ajude-nos a compartilhar o conhecimento:</strong><a href="javascrip:void(0);" id="btn-share-twitter" class="btn btn-primary">Tweet</a> ou <a href="javascrip:void(0);" id="btn-share-facebook" class="btn btn-primary">Compartilhe o nosso site no Facebook</a> Valeu!</p>
+                button.close(type="button", data-dismiss="alert", aria-hidden="true") ×
+
+            p.notifications Quer receber notificações do navegador quando novos links forem postados? Ative este recurso
+                a.btn-notifications(href="#") clicando aqui
+
+            section
+                - each dataLink in dataLinks
+                    article.row.clearfix
+                        div.status
+                            span Novo
+                                i.icon
+
+                        div.col-md-2
+                            a(href=dataLink.link, target="_blank")
+                                img.img-responsive(src=dataLink.imgurl)
+
+                        div.col-md-10
+                            a.link-title(href=dataLink.link, target="_blank")
+                                h1= dataLink.title
+                                small= dataLink.link
+                                    i.glyphicon.glyphicon-new-window
+
+                            div
+                                p= dataLink.description
+
+                            footer.clearfix
+                                div.edit
+                                    form( method="post", action="/dataLink/:id/delete")
+                                        input(name="_id", type="hidden", value=dataLink._id.toHexString())
+                                        input(id="delete", value="deletar", type="submit")
+                                    form( method="get", action="/dataLink/:id/edit")
+                                        input(name="_id", type="hidden", value=dataLink._id.toHexString())
+                                        input(id="edit", value="editar", type="submit")
+                                //nav.pull-left Tags: <a href="#">IRC</a>, <a href="#">NodeJs</a>
+                                nav.pull-left= dataLink.tags
+
+                                div.post-info.pull-right
+                                    a(href="https://www.facebook.com/#{dataLink.usertoken}", target="_blank", title="Ver Renan Vaz no Facebook")
+                                        img(src="https://graph.facebook.com/#{dataLink.usertoken}/picture", alt="Renan Vaz", class="user-picture")
+                                    p Postado em #{dataLink.created_at}<br /> Por <a href="https://www.facebook.com/#{dataLink.usertoken}" target="_blank" title="Ver #{dataLink.usertoken} no Facebook">#{dataLink.usertoken}</a>
+
+                div.loading-more
+                    i Caregando... Temos mais conhecimentos para compartilhar. "Guenta ae"!
+                a(href="/dataLink/new").btn!= "novo link"
+
+
+    section#footer
+        footer.container © 2015 caquijs.io - Todos os direitos reservados
