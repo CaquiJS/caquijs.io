@@ -41,7 +41,8 @@ app.get('/', function(req, res){
     datalinkProvider.findAll(function(error, dataLinks){
         res.render('index', {
             title: 'CaquiJS',
-            dataLinks: dataLinks
+            dataLinks: dataLinks,
+            numLinks: Object.keys(dataLinks).length
         });
     });
 });

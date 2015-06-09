@@ -7,7 +7,7 @@ block content
             div.container
                 h1.pull-left
                     a Caqui JS
-                p.pull-right 230 links de puro conhecimento.<br /> ... e contando.
+                p.pull-right #{numLinks} links de puro conhecimento.<br /> ... e contando.
 
         div.secondary-content(data-offscreen="true")
             form.container(action="")
@@ -22,11 +22,11 @@ block content
     main
         div.container
             div.hello.alert.alert-info.alert-dismissable
-                p <strong>Ajude-nos a compartilhar o conhecimento:</strong><a href="javascrip:void(0);" id="btn-share-twitter" class="btn btn-primary">Tweet</a> ou <a href="javascrip:void(0);" id="btn-share-facebook" class="btn btn-primary">Compartilhe o nosso site no Facebook</a> Valeu!</p>
+                p <strong>Ajude-nos a compartilhar o conhecimento:</strong> <a href="javascrip:void(0);" id="btn-share-twitter" class="btn btn-primary">Tweet</a> ou <a href="javascrip:void(0);" id="btn-share-facebook" class="btn btn-primary">Compartilhe o nosso site no Facebook</a> Valeu!</p>
                 button.close(type="button", data-dismiss="alert", aria-hidden="true") ×
 
             p.notifications Quer receber notificações do navegador quando novos links forem postados? Ative este recurso
-                a.btn-notifications(href="#") clicando aqui
+                a.btn-notifications(href="#")&nbsp;clicando aqui
 
             section
                 - each dataLink in dataLinks
@@ -56,8 +56,9 @@ block content
                                     form( method="get", action="/dataLink/:id/edit")
                                         input(name="_id", type="hidden", value=dataLink._id.toHexString())
                                         input(id="edit", value="editar", type="submit")
-                                //nav.pull-left Tags: <a href="#">IRC</a>, <a href="#">NodeJs</a>
-                                nav.pull-left= dataLink.tags
+                                nav.pull-left Tags:&nbsp;
+                                - each tag in dataLink.tags.split(',')
+                                    a(href="?tag=#{tag}") #{tag}&nbsp;
 
                                 div.post-info.pull-right
                                     a(href="https://www.facebook.com/#{dataLink.usertoken}", target="_blank", title="Ver Renan Vaz no Facebook")
@@ -67,7 +68,3 @@ block content
                 div.loading-more
                     i Caregando... Temos mais conhecimentos para compartilhar. "Guenta ae"!
                 a(href="/dataLink/new").btn!= "novo link"
-
-
-    section#footer
-        footer.container © 2015 caquijs.io - Todos os direitos reservados
