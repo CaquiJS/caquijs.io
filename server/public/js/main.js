@@ -1,8 +1,41 @@
+// Brazilian Portuguese
+jQuery.timeago.settings.strings = {
+    prefixAgo: "há",
+    prefixFromNow: "em",
+    suffixAgo: null,
+    suffixFromNow: null,
+    seconds: "alguns segundos",
+    minute: "um minuto",
+    minutes: "%d minutos",
+    hour: "uma hora",
+    hours: "%d horas",
+    day: "um dia",
+    days: "%d dias",
+    month: "um mês",
+    months: "%d meses",
+    year: "um ano",
+    years: "%d anos"
+};
+
+function dateFormatter(date) {
+    return jQuery.timeago(date);//time
+}
+Number.prototype.padLeft = function(base,chr){
+   var  len = (String(base || 10).length - String(this).length)+1;
+   return len > 0? new Array(len).join(chr || '0')+this : this;
+}
 
 $(function(){
     var scrollLastPos = $(window).scrollTop();
     var lastNewItemPos = 0;
     var scrollLimitPage = ($(document).height() - $(window).height()) - 200;
+
+    $('.time').each(function(){
+        _this = $(this);
+        var date =  new Date(_this.text()),
+        dformat = [ (date.getMonth()+1).padLeft(), date.getDate().padLeft(),date.getFullYear()].join('/')+' ' +[ date.getHours().padLeft(),date.getMinutes().padLeft(),date.getSeconds().padLeft()].join(':');
+        _this.text(dateFormatter(dformat));
+    });
 
     $(window).on('scroll', function(){
         var scrollCurrentPos = $(window).scrollTop();

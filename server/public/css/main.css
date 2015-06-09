@@ -314,6 +314,14 @@ main section article footer {
   font-size: 11px;
   color: #999999;
 }
+main section article footer .tags a{
+  border-left: 1px solid #ddd;
+  padding-left: 8px;
+  padding-right: 3px;
+}
+main section article footer .tags a:first-child{
+  border-left: 0;
+}
 main section article footer .post-info {
   width: 280px;
   text-align: right;

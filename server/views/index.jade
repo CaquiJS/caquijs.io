@@ -56,14 +56,14 @@ block content
                                     form( method="get", action="/dataLink/:id/edit")
                                         input(name="_id", type="hidden", value=dataLink._id.toHexString())
                                         input(id="edit", value="editar", type="submit")
-                                nav.pull-left Tags:&nbsp;
-                                - each tag in dataLink.tags.split(',')
-                                    a(href="?tag=#{tag}") #{tag}&nbsp;
+                                nav.pull-left.tags Tags:
+                                    - each tag in dataLink.tags.split(',')
+                                        a(href="?tag=#{tag}") #{tag}&nbsp;
 
                                 div.post-info.pull-right
                                     a(href="https://www.facebook.com/#{dataLink.usertoken}", target="_blank", title="Ver Renan Vaz no Facebook")
                                         img(src="https://graph.facebook.com/#{dataLink.usertoken}/picture", alt="Renan Vaz", class="user-picture")
-                                    p Postado em #{dataLink.created_at}<br /> Por <a href="https://www.facebook.com/#{dataLink.usertoken}" target="_blank" title="Ver #{dataLink.usertoken} no Facebook">#{dataLink.usertoken}</a>
+                                    p Postado <span class="time">#{dataLink.created_at}</span><br /> Por <a href="https://www.facebook.com/#{dataLink.usertoken}" target="_blank" title="Ver #{dataLink.usertoken} no Facebook">#{dataLink.usertoken}</a>
 
                 div.loading-more
                     i Caregando... Temos mais conhecimentos para compartilhar. "Guenta ae"!
