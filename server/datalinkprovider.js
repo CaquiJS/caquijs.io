@@ -22,7 +22,7 @@ DataLinkProvider.prototype.findAll = function(callback) {
     this.getCollection(function(error, employee_collection) {
       if( error ) callback(error)
       else {
-        employee_collection.find().toArray(function(error, results) {
+        employee_collection.find().sort({created_at: -1}).toArray(function(error, results) {
           if( error ) callback(error)
           else callback(null, results)
         });

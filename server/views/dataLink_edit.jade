@@ -7,22 +7,22 @@ block content
             input(name="_id", type="hidden", value=dataLink._id.toHexString())
             div
                 div
-                    span.label Title :
+                    label Title :
                     input(type="text", name="title", id="editdataLinkTitle", value=[title])
                 div
-                    span.label User Token :
+                    label User Token :
                     input(type="text", name="usertoken", id="editdataLinkName", value=[usertoken])
                 div
-                    span.label Descrição :
+                    label Descrição :
                     input(type="text", name="description", id="editdataLinkName", value=[description])
                 div
-                    span.label Url da Imagem :
+                    label Url da Imagem :
                     input(type="text", name="imgurl", id="editdataLinkName", value=[imgurl])
                 div
-                    span.label Link (url) :
+                    label Link (url) :
                     input(type="text", name="link", id="editdataLinkName", value=[link])
                 div
-                    span.label Tags (separados por comma) :
+                    label Tags (separados por comma) :
                     input(type="text", name="tags", id="editdataLinkName", value=[tags])
                 div#editdataLinkSubmit
                     input(type="submit", value="Update")

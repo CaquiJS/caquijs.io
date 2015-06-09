@@ -39,19 +39,34 @@ DATABASE
 
 API
 $.post(
-    '',
+    'http://localhost:3000/datalink/new',
     {
         data: {
-            user_token: 'a123bld9a93js96asd23',
+            usertoken: 'a123bld9a93js96asd23',
             title: 'Título',
             description: 'Descrição com até 140 caracteres.',
-            image: 'Endereço absoluto de alguma imagem',
+            imgurl: 'Endereço absoluto de alguma imagem',
             link: 'http://link.com.br/article/etc...',
             tags: 'tag1, tag2, tag3'
         },
-        success: function(){ alert("Ae! Artigo postado com sucesso ;)") }
+        success: function(){
+            alert("Ae! Artigo postado com sucesso ;)");
+        }
     }
 );
+
+//VERSAO RODRIGO
+var data = {
+    usertoken: 'a123bld9a93js96asd23',
+    title: 'Título',
+    description: 'Descrição com até 140 caracteres.',
+    imgurl: 'Endereço absoluto de alguma imagem',
+    link: 'http://link.com.br/article/etc...',
+    tags: 'tag1, tag2, tag3'
+};
+$.post('http://localhost:3000/datalink/new', data).done(function( data ) {
+    alert("Ae! Artigo postado com sucesso ;)");
+});;
 
 
 

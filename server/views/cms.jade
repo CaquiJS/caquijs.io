@@ -29,6 +29,11 @@ block content
                 a.btn-notifications(href="#")&nbsp;clicando aqui
 
             section
+                br
+                br
+                a(href="/dataLink/new").btn.btn-default!= "cadastrar novo link"
+                br
+                br
                 - each dataLink in dataLinks
                     article.row.clearfix
                         div.status
@@ -57,6 +62,15 @@ block content
                                     a(href="https://www.facebook.com/#{dataLink.usertoken}", target="_blank", title="Ver #{dataLink.usertoken} no Facebook")
                                         img(src="https://graph.facebook.com/#{dataLink.usertoken}/picture", alt="#{dataLink.usertoken}", class="user-picture")
                                     p Postado <span class="time">#{dataLink.created_at}</span><br /> Por <a href="https://www.facebook.com/#{dataLink.usertoken}" target="_blank" title="Ver #{dataLink.usertoken} no Facebook">#{dataLink.usertoken}</a>
+                                br
+                                br
+                                div.edit
+                                    form( method="post", action="/dataLink/:id/delete")
+                                        input(name="_id", type="hidden", value=dataLink._id.toHexString())
+                                        input(id="delete", value="deletar", type="submit")
+                                    form( method="get", action="/dataLink/:id/edit")
+                                        input(name="_id", type="hidden", value=dataLink._id.toHexString())
+                                        input(id="edit", value="editar", type="submit")
 
                 div.loading-more
                     i Caregando... Temos mais conhecimentos para compartilhar. "Guenta ae"!

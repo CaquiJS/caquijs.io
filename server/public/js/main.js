@@ -25,6 +25,12 @@ Number.prototype.padLeft = function(base,chr){
    return len > 0? new Array(len).join(chr || '0')+this : this;
 }
 
+// var socket = io.connect('http://localhost');
+// socket.on('news', function (data) {
+//     console.log(data);
+//     socket.emit('my other event', { my: 'data' });
+// });
+
 $(function(){
     var scrollLastPos = $(window).scrollTop();
     var lastNewItemPos = 0;

@@ -7,6 +7,8 @@ var express = require('express')
 , user = require('./routes/user')
 , http = require('http')
 , path = require('path')
+, server = require('http').Server(app)
+, io   = require('socket.io').listen(server)
 , DataLinkProvider = require('./datalinkprovider').DataLinkProvider;
 
 var app = express();
@@ -21,16 +23,18 @@ app.configure(function(){
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
-    //app.use(require('stylus').middleware(__dirname + '/public'));
-
-    // var lessMiddleware = require('less-middleware');
-    // var app = express();
-    // app.use(lessMiddleware(__dirname + '/public'));
     app.use(express.static(path.join(__dirname, 'public')));
 });
 app.configure('development', function(){
     app.use(express.errorHandler());
 });
+
+// io.on('connection', function (socket) {
+//   socket.emit('news', { hello: 'world' });
+//   socket.on('my other event', function (data) {
+//     console.log(data);
+//   });
+// });
 
 var datalinkProvider= new DataLinkProvider('localhost', 27017);
 
@@ -47,6 +51,17 @@ app.get('/', function(req, res){
     });
 });
 
+//cms
+app.get('/dataLink/cms', function(req, res){
+    datalinkProvider.findAll(function(error, dataLinks){
+        res.render('cms', {
+            title: 'CaquiJS',
+            dataLinks: dataLinks,
+            numLinks: Object.keys(dataLinks).length
+        });
+    });
+});
+
 //new dataLink
 app.get('/dataLink/new', function(req, res) {
     res.render('dataLink_new', {//dataLink_new.jade
@@ -56,7 +71,8 @@ app.get('/dataLink/new', function(req, res) {
 
 //save new dataLink
 app.post('/dataLink/new', function(req, res){
-    datalinkProvider.save({
+    datalinkProvider.save(
+    {
         usertoken:   req.param('usertoken'),
         title:       req.param('title'),
         description: req.param('description'),
@@ -86,7 +102,8 @@ app.get('/dataLink/:id/edit', function(req, res) {
 
 //save updated dataLink
 app.post('/dataLink/:id/edit', function(req, res) {
-    datalinkProvider.update(req.param('_id'),{
+    datalinkProvider.update(req.param('_id'),
+    {
         usertoken:   req.param('usertoken'),
         title:       req.param('title'),
         description: req.param('description'),
