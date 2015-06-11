@@ -42,7 +42,7 @@ var datalinkProvider= new DataLinkProvider('localhost', 27017);
 
 //index
 app.get('/', function(req, res){
-    datalinkProvider.findAll(function(error, dataLinks){
+    datalinkProvider.findAll(req.query, function(error, dataLinks){
         res.render('index', {
             title: 'CaquiJS',
             dataLinks: dataLinks,
@@ -80,7 +80,7 @@ app.post('/dataLink/new', function(req, res){
         link:        req.param('link'),
         tags:        req.param('tags')//separated of comma
     }, function( error, docs) {
-        res.redirect('/')
+        res.redirect('/dataLink/cms')
     });
 });
 
@@ -111,14 +111,14 @@ app.post('/dataLink/:id/edit', function(req, res) {
         link:        req.param('link'),
         tags:        req.param('tags')//separated of comma
     }, function(error, docs) {
-        res.redirect('/')
+        res.redirect('/dataLink/cms')
     });
 });
 
 //delete an dataLink
 app.post('/dataLink/:id/delete', function(req, res) {
     datalinkProvider.delete(req.param('_id'), function(error, docs) {
-        res.redirect('/')
+        res.redirect('/dataLink/cms')
     });
 });
 

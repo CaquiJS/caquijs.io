@@ -11,7 +11,26 @@ html
     link(rel='stylesheet', href='/css/bootstrap.min.css')
     link(rel='stylesheet', href='/css/main.css')
   body
-    block content
+    header
+        div.primary-content
+            div.container
+                h1.pull-left
+                    a(href="/") Caqui JS
+                p.pull-right #{numLinks} links de puro conhecimento.<br /> ... e contando.
+
+        div.secondary-content(data-offscreen="true")
+            form.container(action="/", method="get")
+                label(for="txt-filter")
+                    i.glyphicon.glyphicon-search
+                input#txt-filter(type="search", placeholder="Filtre os resultados utilizando tags...", autofocus="autofocus", name="search")
+        div.alert-news
+            button.btn.btn-success(type="button")
+                i.glyphicon.glyphicon-arrow-up
+                span.text Wow! Já temos mais 5 links. Quer ver?
+
+    main
+        div.container
+            block content
     section#footer
         footer.container © 2015 caquijs.io - Todos os direitos reservados
 
