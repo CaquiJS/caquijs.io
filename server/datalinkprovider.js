@@ -25,7 +25,13 @@ DataLinkProvider.prototype.findAll = function(query, callback) {
       else {
         employee_collection.find({ $or: [{tags: new RegExp(search, 'i')}, {title: new RegExp(search, 'i')}, {description: new RegExp(search, 'i')} ]}).sort({created_at: -1}).toArray(function(error, results) {
           if( error ) callback(error)
-          else callback(null, results)
+          else {
+            var results_search = results;
+            employee_collection.find().sort({created_at: -1}).toArray(function(error, results) {
+              if( error ) callback(error)
+              else callback(null,results_search, results)
+            });
+          }
         });
       }
     });

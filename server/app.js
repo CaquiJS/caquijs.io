@@ -42,11 +42,20 @@ var datalinkProvider= new DataLinkProvider('localhost', 27017);
 
 //index
 app.get('/', function(req, res){
-    datalinkProvider.findAll(req.query, function(error, dataLinks){
+    datalinkProvider.findAll(req.query, function(error, dataLinks, alldataLinks){
+
+        var tags = [];
+        for(var i = 0; i < alldataLinks.length; i++){
+            // tags.push( Object.keys(alldataLinks[i].tags).map(function(k) { return alldataLinks[i].tags[k] }));
+            tags = tags.concat( alldataLinks[i].tags );
+        }
+        //tags = tags.map(function(v){ return {value: v}; });
+
         res.render('index', {
             title: 'CaquiJS',
             dataLinks: dataLinks,
-            numLinks: Object.keys(dataLinks).length
+            numLinks: Object.keys(dataLinks).length,
+            tags: JSON.stringify(tags)
         });
     });
 });

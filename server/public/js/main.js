@@ -83,8 +83,20 @@ $(function(){
         $('.notifications').show();
     }
 
-    // Fake
+    // Tagger.js
+    var i = 0;
+    var to;
+    $('#txt-filter').tagger({
+        //tags:       function(val, onComplete){ clearTimeout(to); to = setTimeout(function(){ onComplete(tags); }, 1000); }, // or function
+        tags:       tags,
+        minDigits:  0,
+        maxTags:    false, // or number
+        onlyInList: true,
+        tagTpl:     '<span class="tagger-item-label-text">{{ value }}</span><button class="tagger-tag-remove">X</button>',
+        itemTpl:    '<span>{{ value }}</span>'
+    });
 
+    // Fake
     setTimeout(function(){
         var description = 'Wow! Já temos mais 5 links. Quer ver?';
         if (window.getVisibilityState() == 'visible') {

@@ -103,6 +103,20 @@ $(document).ready(function() {
     $('.hello a').on('click', function(){
         $('.hello').alert('close');
     });
+
+    // Tagger.js
+    var i = 0;
+    var to;
+    $('#txt-filter').tagger({
+        //tags:       function(val, onComplete){ clearTimeout(to); to = setTimeout(function(){ onComplete(tags); }, 1000); }, // or function
+        tags:       tags,
+        minDigits:  0,
+        maxTags:    false, // or number
+        onlyInList: true,
+        tagTpl:     '<span class="tagger-item-label-text">{{ value }}</span><button class="tagger-tag-remove">X</button>',
+        itemTpl:    '<span>{{ value }}</span><small>{{ description }}</small>'
+    });
+
 });
 
 var http = require('http');
